@@ -15,7 +15,7 @@ module Reflex.Dom.Contrib.Router (
   -- == High-level routers
     route
   , route'
-  , partialPathRoute
+  -- , partialPathRoute
 
   -- = Low-level URL bar access
   , getLoc
@@ -89,7 +89,7 @@ route' encode decode routeUpdate = do
       let urlUpdates = attachWith encode (current rUri) routeUpdate
   return $ decode <$> rUri
 
-
+{-
 -------------------------------------------------------------------------------
 -- | Route a single page app according to the part of the path after
 --   pathBase
@@ -122,7 +122,7 @@ partialPathRoute pathBase pathUpdates = do
     cleanT = T.dropWhile (=='/')
     cleanB = BS.dropWhile (== '/')
 
-
+-}
 -------------------------------------------------------------------------------
 uriOrigin :: U.URIRef U.Absolute -> T.Text
 uriOrigin r = T.decodeUtf8 $ U.serializeURIRef' r'
